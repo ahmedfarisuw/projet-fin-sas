@@ -55,12 +55,30 @@ void ajouterPlusieursJoueurs() {
         ajouterJoueur();
     }
 }
+void afficherjoueurs(){
+    int choix;
+    joueur j ;
+    if(nombreJoueurs==0){
+         while (choix != 0);
+    printf("\n----------listes des joueurs----------\n");
+    for(int i=0;i<nombreJoueurs;i++){
+        j=equipe[i];
+        printf("ID:%d|%s%s|Maillot:%d|poste:%d|age:%d|buts:%d|statut:%s\n",j.id,j.nom,j.prenom,j.numeroMaillot,j.poste,j.age,j.buts,j.statut);
+    }
+        printf("Aucun joueur dans équipe.\n");
+        return;
+    }
+}
+
 int main() {
     int choix;
+    
+
     do {
         printf("\n===== MENU =====\n");
         printf("1. Ajouter un joueur\n");
         printf("2. Ajouter plusieurs joueurs\n");
+        printf("3.Afficher joueurs\n");
         printf("0. Quitter\n");
         printf("Votre choix : ");
         scanf("%d", &choix);
@@ -68,22 +86,10 @@ int main() {
         switch (choix) {
             case 1: ajouterJoueur(); break;
             case 2: ajouterPlusieursJoueurs(); break;
+            case 3: afficherjoueurs();break;
             case 0: printf("👋 Au revoir !\n"); break;
             default: printf("⚠ Choix invalide.\n");
         }
-    } while (choix != 0);
-
+    
     return 0;
-}
-void afficherjoueurs(){
-    if(nombreJoueurs == 0){
-        printf("aucun joueur dans équipe \n");
-        return;
-    }
-    printf("\n--- Liste des joueurs ---\n");
-    for (int i = 0; i < nombreJoueurs; i++) {
-        Joueur j = equipe[i];
-        printf("ID:%d | %s %s | Maillot:%d | Poste:%s | Age:%d | Buts:%d | Date:%s | Statut:%s\n",
-               j.id, j.nom, j.prenom, j.numeroMaillot, j.poste, j.age, j.buts, j.dateInscription, j.statut);
-    }
-}
+    }}
